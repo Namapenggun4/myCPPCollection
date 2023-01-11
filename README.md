@@ -1,4 +1,3 @@
-
 # Main C++
 
 Semua file latihan C++ punyaku ada di sini
