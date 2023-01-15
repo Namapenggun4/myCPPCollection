@@ -1,20 +1,20 @@
 #include <cstdio>
 
-int count;
-
 int main() {
-    printf("Masukkan angka yang mau di loop: ");
-    scanf("%d", &count);
+    short int n;
 
-    for (int i = 1; i <= count; i++)
-    {
-        for (int j = 1; j <= count;j = 1)
-        {
-            printf("%d \n", j);
-        }
-        printf("\n");
+    printf("Masukkan sebuah integer: ");
+    scanf("%hd", &n);
+
+    if (n > 0) {
+        printf("\nKamu memasukkan bilangan positif\n");
+    } else if (n < 0) {
+        printf("\nKamu memasukkan bilangan negatif\n");
+    } else if (n == 0) {
+        printf("\nKamu memasukkan bilangan 0\n");
+    } else {
+        printf("\nInputan berada di luar jangkauan\n");
     }
     
     return 0;
-    
 }
