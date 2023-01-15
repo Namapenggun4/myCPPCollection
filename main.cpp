@@ -61,23 +61,24 @@ int main() {
         {
             printf("Selamat Ananda LULUS!\n");
         } else if (tinggi < 165) {
-            printf("\nMohon Maaf Anda Gagal\n");
+            printf("Mohon Maaf Anda Gagal\n");
         } else {
-            printf("\nPilihan berada di luar jangkauan\n");
             goto cobalagi;
+            printf("\nPilihan berada di luar jangkauan\n");
         }
         
     } else if (pilih == 2) {
         if (tinggi >= 160) {
             printf("Selamat Ananda LULUS!\n");
         } else if (tinggi < 160) {
-            printf("\nMohon Maaf Anda Gagal\n");
+            printf("Mohon Maaf Anda Gagal\n");
         } else {
-            printf("\nPilihan berada di luar jangkauan\n");
             goto cobalagi;
+            printf("\nPilihan berada di luar jangkauan\n");
         }
     } else {
         goto cobalagi;
+        printf("Pilihan ada berada di luar jangkauan\n");   
     }
     
     return 0;
