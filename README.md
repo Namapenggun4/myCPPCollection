@@ -17,7 +17,7 @@ Install **Main CPP** with terminal in linux
 **Ubuntu:** 
 ```bash
     sudo apt install g++
-    g++ main.cpp -W -Wall -pedantic
+    g++ filename.cpp
     ./a.out
 ```
 ## License
