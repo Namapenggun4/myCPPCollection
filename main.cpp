@@ -1,85 +1,105 @@
-/*Dalam kasus ini saya membuat contoh syarat tinggi badan dalam test tertentu, dimana jika jenis kelamin memilih no.1 atau laki-laki dan tinggi badan lebih dari 165, maka memenuhi syarat dan lulus, selain dari itu jika jenis kelamin memilih no.1 dan tinggi badan kurang dari 165cm maka tidak lulus. selanjutnya jika jenis kelamin memilih no.2 atau perempuan dan tinggi badan lebih dari 160 maka memenuhi syarat dan lulus, tapi jika jenis kelamin memilih no.2 atau perempuan dan tinggi badan kurang dari 160cm maka tidak lulus.*/
-
-
 /*
-    ! LOGARITMA
-
-    input pilih
-
-    jika milih 1 = laki laki 
-        jika >= 165 lulus
-        jika < 165 gagal 
-    jika milih 2 = perempuan 
-        jika >= 160 lulus
-        jika < 160 gagal
-
-    output hasil
+    TODO membuat diskonan sebelum hasilkan total bayar
+    TODO membuat pilihan mau beli lagi gak ngentod
 */
-#include <cstdio>
 #include <cstdlib>
+#include <cstdio>
+#include <iostream>
 
-short int pilih, tinggi;
+using namespace std;
 
-int menu() {
-    printf("########## Cek Kelulusan ##########\n");
-    printf("Jenis kelamin: \n");
-    printf("1. Laki - laki ♂️\n");
-    printf("2. Perempuan ♀️\n\n");
 
+bool diskon = false;
+short int pilih, jumlah;
+unsigned int bayar = 3238 * 0 + (823838 * 0);
+char lagi;
+
+
+int menu(void) {
+
+    printf("===============FOTOCOPY PAK MAMAT=============\n");
+    printf("Menu:\n\n");
+    printf("1. Fotocopy / lembar Rp 500\n");
+    printf("2. Print / lembar Rp 1000\n");
+    printf("\n---Diskon jika pembelian diatas Rp 20.000---\n");
+    printf("==============================================\n\n");
     return 0;
 }
 
-int main() {
+int main(void) {
 
-#ifdef __linux__ 
-    system("clear");
-#endif
+    #ifdef __linux__
+        system("clear");
+    #endif
 
-#ifdef __APPLE__
-    system("clear");
-#endif
+    #ifdef __APPLE__
+        system("clear");
+    #endif
 
-#ifdef _WIN32
-    system("cls");
-#endif
-    
+    #ifdef _WIN32
+        system("cls");
+    #endif
+
     menu();
 
-    // * memilih jenis kelamin
-    cobalagi:
-    printf("Pilih jenis kelamin (dengan angka): ");
+    spawn:
+    printf("Pilih menu (dengan angka): ");
     scanf("%hd", &pilih);
-
-    // * mengisi tinggi badan
-    printf("Masukkan tinggi badan (dengan angka): ");
-    scanf("%hd", &tinggi);
-    printf("\n");
 
     if (pilih == 1)
     {
-        if (tinggi >= 165)
+        printf("Masukkan jumlah lembar yang mau difotocopy: ");
+        scanf("%hd", &jumlah);
+        bayar += jumlah * 500;
+        
+        if (diskon == false)
         {
-            printf("Selamat Ananda LULUS!\n");
-        } else if (tinggi < 165) {
-            printf("Mohon Maaf Anda Gagal\n");
-        } else {
-            goto cobalagi;
-            printf("\nPilihan berada di luar jangkauan\n");
+            if (bayar >= 20000)
+            {
+                bayar = bayar * 95 / 100;
+                diskon = true;
+            }
+            
         }
         
+        
     } else if (pilih == 2) {
-        if (tinggi >= 160) {
-            printf("Selamat Ananda LULUS!\n");
-        } else if (tinggi < 160) {
-            printf("Mohon Maaf Anda Gagal\n");
-        } else {
-            goto cobalagi;
-            printf("\nPilihan berada di luar jangkauan\n");
-        }
-    } else {
-        goto cobalagi;
-        printf("Pilihan ada berada di luar jangkauan\n");   
-    }
+        printf("Masukkan jumlah yang mau di print: ");
+        scanf("%hd", &jumlah);
+        bayar += jumlah * 1000;
+
+        if (diskon == false)
+        {
+            if (bayar >= 20000)
+            {
+                bayar = bayar * 95 / 100;
+                diskon = true;
+            }
     
-    return 0;
+        }
+                
+    } else {
+        printf("Input berada di luar jangkauan\n");
+        goto spawn;
+    }
+
+    printf("Apakah anda mau memesan lagi? (y/n)\n");
+    cin >> lagi;
+
+
+    switch (lagi)
+    {
+    case 'y':
+        goto spawn;
+        break;
+    
+    case 'n':
+        printf("\nTotal bayar = Rp %u\n", bayar);
+        break;
+
+    default:
+        printf("Pilihan anda berada di luar jangkauan\n");
+        break;
+    }
+    return 0;   
 }
