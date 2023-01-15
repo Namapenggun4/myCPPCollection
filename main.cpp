@@ -1,20 +1,29 @@
 #include <cstdio>
+#include <iostream>
 
+using namespace std;
+
+
+string user, password;
 int main() {
-    short int n;
+    printf("######WELCOME######\n");
+    printf("Masukkan username: ");
+    cin >> user;
 
-    printf("Masukkan sebuah integer: ");
-    scanf("%hd", &n);
+    if (user == "admin") {
+        awal:
+        printf("Masukkan password: ");
+        cin >> password;
 
-    if (n > 0) {
-        printf("\nKamu memasukkan bilangan positif\n");
-    } else if (n < 0) {
-        printf("\nKamu memasukkan bilangan negatif\n");
-    } else if (n == 0) {
-        printf("\nKamu memasukkan bilangan 0\n");
+        if (password == "_f8aqYL622Vd2wr") {
+            printf("\nSelemat datang admin-Sama!\n");
+        } else {
+            printf("\nPassword yang dimasukkan salah, silahkan coba lagi\n");
+            goto awal;
+        }
     } else {
-        printf("\nInputan berada di luar jangkauan\n");
+        printf("Welcome user-san!\n");
     }
-    
+
     return 0;
 }
